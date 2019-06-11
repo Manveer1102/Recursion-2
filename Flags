@@ -1,0 +1,39 @@
+long long find(int n,char prev,char prev_prev){
+  if(n==1){
+    return 1;
+  }
+  long long a,b,c,d,e,f,i,g;
+  if(prev=='B' && prev_prev=='W'){
+    a=find(n-1,'R','B');
+    return a;
+  }
+  if(prev=='B' && prev_prev=='R'){
+    b=find(n-1,'W','B');
+    return b;
+  }
+  if(prev=='W'){
+    c=find(n-1,'R','W');
+    d=find(n-1,'B','W');
+    return c+d;
+  }
+  if(prev=='R'){
+    e=find(n-1,'W','R');
+    f=find(n-1,'B','R');
+    return e+f;
+  }
+  if(prev=='B' && prev_prev=='S'){
+    i=find(n-1,'R','B');
+    g=find(n-1,'W','B');
+    return i+g;
+  }
+}
+long long find_Ways(int N)
+{
+    /* Don't write main().
+   * Don't read input, it is passed as function argument.
+   * Taking input and printing output is handled automatically.
+  */
+  long long a;
+  a=find(N,'B','S');
+  return a;
+}
